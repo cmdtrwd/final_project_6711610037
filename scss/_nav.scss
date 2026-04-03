@@ -1,0 +1,118 @@
+// Navigation
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: $spacing-md $spacing-lg;
+  background: rgba($color-bg, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+  transition: background $transition-base;
+
+  &__inner {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: $fs-md;
+    font-weight: 300;
+    color: $color-text-bright;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    span { color: $color-green-light; }
+  }
+
+  &__logo-img {
+    height: 28px;
+    width: auto;
+  }
+
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: $spacing-xs;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: $color-text;
+      transition: $transition-base;
+    }
+
+    &.active {
+      span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    }
+  }
+
+  &__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba($color-bg, 0.95);
+    border-bottom: 1px solid $color-border;
+    flex-direction: column;
+    padding: $spacing-md 0;
+
+    &.open { display: flex; }
+  }
+
+  &__link {
+    display: block;
+    padding: $spacing-sm $spacing-lg;
+    font-size: $fs-sm;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-dim;
+    @include text-hover($color-green-light);
+
+    &--active { color: $color-green-light; }
+  }
+}
+
+// ---- Desktop ----
+@media (min-width: $breakpoint-desktop) {
+  .nav {
+    padding: $spacing-md $spacing-xl;
+
+    &__inner { padding: 0 $spacing-xl; }
+    &__logo { font-size: $fs-lg; }
+    &__logo-img { height: 34px; }
+    &__toggle { display: none; }
+
+    &__links {
+      display: flex;
+      position: static;
+      flex-direction: row;
+      width: auto;
+      background: transparent;
+      border: none;
+      padding: 0;
+      gap: $spacing-xl;
+    }
+
+    &__link {
+      padding: 0;
+      font-size: $fs-xs;
+    }
+  }
+}

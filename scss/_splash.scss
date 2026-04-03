@@ -1,0 +1,112 @@
+// Splash Screen & Music Button
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: $color-bg;
+  @include flex-center;
+  transition: opacity 0.8s ease;
+
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba($color-bg, 0.4) 0%, rgba($color-bg, 0.85) 100%);
+    pointer-events: none;
+  }
+
+  &__content {
+    text-align: center;
+    padding: $spacing-lg;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__sub {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $color-green;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $fs-xl + 0.25rem;
+    font-weight: 300;
+    color: $color-text-bright;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-xl;
+    line-height: 1.2;
+  }
+
+  &__btn {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid $color-green;
+    color: $color-green-light;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.85rem 2.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-bottom: $spacing-lg;
+
+    &:hover {
+      background: $color-overlay;
+      border-color: $color-green-light;
+      color: $color-text-bright;
+    }
+  }
+
+  &__hint {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    color: #555555;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+  }
+}
+
+.music-btn {
+  position: fixed;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  z-index: 150;
+  background: rgba($color-surface, 0.9);
+  border: 1px solid $color-border;
+  color: $color-green-light;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  padding: $spacing-xs $spacing-md;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all $transition-base;
+  backdrop-filter: blur(6px);
+
+  &:hover { border-color: $color-green-light; }
+  &.playing { color: $color-text-bright; border-color: $color-green; }
+}
+
+// ---- Desktop ----
+@media (min-width: $breakpoint-desktop) {
+  .splash__title { font-size: $fs-3xl; }
+  .splash__sub { font-size: 0.8rem; }
+}

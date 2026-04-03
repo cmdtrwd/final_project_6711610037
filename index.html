@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LilyPhilia</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Splash Screen — click to enter & enable audio autoplay -->
+  <div id="splash" class="splash">
+    <video class="splash__video" autoplay muted loop playsinline>
+      <source src="videos/reload.mp4" type="video/mp4">
+    </video>
+    <div class="splash__overlay"></div>
+    <div class="splash__content">
+      <p class="splash__sub">Shunji Iwai &middot; 2001</p>
+      <h1 class="splash__title">All About Lily Chou-Chou</h1>
+      <button id="splashEnter" class="splash__btn">Enter the Ether</button>
+      <p class="splash__hint">&#9835; Best experienced with sound</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="images/logo.png" alt="Logo" class="nav__logo-img">Lily <span>Chou-Chou</span></a>
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link nav__link--active">Home</a>
+        <a href="tracks.html" class="nav__link">Tracks</a>
+        <a href="gallery.html" class="nav__link">Gallery</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+   
+      <video class="hero__video" autoplay muted loop playsinline>
+        <source src="videos/homepage.mp4" type="video/mp4">
+      </video>
+    
+    <div class="hero__placeholder"></div>
+
+    <div class="hero__content">
+      <p class="hero__subtitle">A Film by Shunji Iwai &middot; 2001</p>
+      <h1 class="hero__title">All About Lily Chou-Chou</h1>
+      <p class="hero__tagline">&ldquo;Do you understand the Ether?&rdquo;</p>
+    </div>
+
+    <div class="hero__scroll">
+      <span></span>
+      <small>Scroll</small>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro">
+    <div class="intro__inner">
+      <div class="intro__heading">
+        <h2>The Ether</h2>
+        <small>About the Film</small>
+      </div>
+      <div class="intro__text">
+        <p>
+          Set against the sprawling green rice fields of rural Japan and the flickering glow of early
+          internet chatrooms, <em>All About Lily Chou-Chou</em> (2001) follows the intertwined lives
+          of Yuichi Hasumi and Shusuke Hoshino as they navigate the cruelty and confusion of adolescence.
+        </p>
+        <p>
+          Director Shunji Iwai crafts a dreamlike portrait of youth caught between connection and isolation,
+          reality and the digital world. The fictional singer Lily Chou-Chou and her ethereal music become
+          a spiritual refuge for Yuichi &mdash; a source of the mysterious force fans call <em>the Ether</em>,
+          offering a fragile escape from what he describes as &ldquo;the Age of Grey.&rdquo;
+        </p>
+        <p>
+          Shot on early digital cameras with a raw, overexposed aesthetic, the film interweaves
+          BBS forum posts with scenes of haunting beauty and devastating violence, creating an experience
+          that lingers long after the credits roll.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BBS-style Quote -->
+  <section class="bbs-quote">
+    <div class="bbs-quote__inner">
+      <p class="bbs-quote__text">
+        &gt; I feel like the Ether is the only thing that understands me.<br>
+        &gt; In this world where everything is grey,<br>
+        &gt; her voice is the only color I can see.
+      </p>
+      <p class="bbs-quote__user">— Philia @ Lilyholic BBS</p>
+    </div>
+  </section>
+
+  <!-- Second Intro Block -->
+  <section class="intro">
+    <div class="intro__inner">
+      <div class="intro__heading">
+        <h2>Lilyholic</h2>
+        <small>The Community</small>
+      </div>
+      <div class="intro__text">
+        <p>
+          At the heart of the film lies Lilyholic, an online bulletin board where fans gather
+          to discuss Lily Chou-Chou's music, share their thoughts on the Ether, and find
+          connections they cannot make in the physical world. Under anonymous aliases like
+          Philia and Blue Cat, they exchange intimate confessions hidden behind the safety
+          of the screen.
+        </p>
+        <p>
+          The BBS messages that overlay much of the film serve as a window into the characters'
+          inner worlds &mdash; a stark contrast to their silent suffering in real life.
+          Iwai's pioneering use of internet culture as a narrative device anticipated the age
+          of social media by more than a decade.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Another BBS Quote -->
+  <section class="bbs-quote">
+    <div class="bbs-quote__inner">
+      <p class="bbs-quote__text">
+        &gt; Has anyone been to a Lily concert?<br>
+        &gt; I heard the Ether is even stronger in person.<br>
+        &gt; I want to feel it just once before everything ends.
+      </p>
+      <p class="bbs-quote__user">— Blue Cat @ Lilyholic BBS</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__logo">Lily Chou-Chou</p>
+      <div class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="tracks.html">Tracks</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <p class="footer__credit">
+        A tribute to Shunji Iwai's film &middot; All About Lily Chou-Chou (2001)
+      </p>
+    </div>
+  </footer>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="audio/Glide.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicToggle" class="music-btn playing">&#9835; Pause</button>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

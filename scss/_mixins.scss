@@ -1,0 +1,41 @@
+// Desktop breakpoint
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Section padding — mobile only (desktop override in each file)
+@mixin section-padding {
+  padding: $spacing-2xl $spacing-lg;
+}
+
+@mixin text-hover($color: $color-green-light) {
+  transition: color $transition-base;
+  &:hover { color: $color; }
+}
+
+@mixin fade-in($delay: 0s) {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: $delay;
+}
+
+// Container — mobile only (desktop override in each file)
+@mixin container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}

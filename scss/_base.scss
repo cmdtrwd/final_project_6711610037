@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $color-bg;
+  color: $color-text;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $color-text;
+  text-decoration: none;
+  @include text-hover($color-green-light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-heading;
+  font-weight: 300;
+  color: $color-text-bright;
+  line-height: 1.2;
+}
+
+h1 { font-size: $fs-2xl; letter-spacing: 0.03em; }
+h2 { font-size: $fs-xl; letter-spacing: 0.02em; }
+h3 { font-size: $fs-lg; font-weight: 400; }
+
+p {
+  margin-bottom: $spacing-md;
+  color: $color-text-dim;
+  font-size: $fs-sm;
+}
+
+.container { @include container; }
+
+// Keyframes
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSlow {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes bbs-flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.85; }
+}
+
+// Utility
+.text-center { text-align: center; }
+.text-ether  { color: $color-ether; }
+.text-green  { color: $color-green-light; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+// ---- Desktop ----
+@media (min-width: $breakpoint-desktop) {
+  h1 { font-size: $fs-3xl; }
+  h2 { font-size: $fs-2xl; }
+  p  { font-size: $fs-base; }
+  .container { padding: 0 $spacing-xl; }
+}

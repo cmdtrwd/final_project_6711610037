@@ -1,0 +1,170 @@
+// Tracks Page
+
+.tracks-hero {
+  padding-top: 100px;
+  padding-bottom: $spacing-2xl;
+  @include section-padding;
+  text-align: center;
+  border-bottom: 1px solid $color-border;
+
+  &__inner { @include container; }
+  h1 { @include fade-in(0.2s); margin-bottom: $spacing-sm; }
+  p  { max-width: 550px; margin: 0 auto; @include fade-in(0.4s); }
+}
+
+// Album Info
+.album-info {
+  @include section-padding;
+  border-bottom: 1px solid $color-border;
+
+  &__inner { @include container; }
+
+  &__cover {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto $spacing-xl;
+    aspect-ratio: 1;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    @include flex-center;
+    font-family: $font-heading;
+    font-size: $fs-xl;
+    color: $color-text-dim;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, $color-overlay, transparent 60%);
+      animation: etherGlow 6s ease infinite alternate;
+    }
+
+    span { position: relative; z-index: 1; }
+  }
+
+  &__details {
+    flex: 1;
+    h2 { margin-bottom: $spacing-xs; }
+    p  { margin-bottom: $spacing-sm; }
+  }
+
+  &__meta {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $color-text-dim;
+    letter-spacing: 0.05em;
+    line-height: 2;
+  }
+}
+
+@keyframes etherGlow {
+  from { transform: translate(-20%, -20%) rotate(0deg); }
+  to   { transform: translate(-30%, -30%) rotate(60deg); }
+}
+
+// Track List
+.track-list {
+  @include section-padding;
+  &__inner { @include container; }
+
+  &__heading {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $color-text-dim;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+.track-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid $color-border;
+  transition: background $transition-base;
+
+  &__number {
+    font-family: $font-mono;
+    font-size: $fs-sm;
+    color: $color-text-dim;
+    min-width: 30px;
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  &__info { flex: 1; }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $fs-md;
+    color: $color-text-bright;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  &__jp {
+    font-size: $fs-xs;
+    color: $color-ether;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__desc {
+    font-size: $fs-xs;
+    color: $color-text-dim;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  &__duration {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $color-text-dim;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+}
+
+// ---- Desktop ----
+@media (min-width: $breakpoint-desktop) {
+  .tracks-hero {
+    padding: $spacing-3xl $spacing-2xl;
+    padding-top: 140px;
+    &__inner { padding: 0 $spacing-xl; }
+  }
+
+  .album-info {
+    padding: $spacing-3xl $spacing-2xl;
+    &__inner {
+      padding: 0 $spacing-xl;
+      display: flex;
+      gap: $spacing-2xl;
+      align-items: center;
+    }
+    &__cover {
+      margin: 0;
+      flex: 0 0 280px;
+    }
+  }
+
+  .track-list {
+    padding: $spacing-3xl $spacing-2xl;
+    &__inner { padding: 0 $spacing-xl; }
+  }
+
+  .track-item {
+    align-items: center;
+    padding: $spacing-lg $spacing-md;
+    &:hover { background: $color-overlay; }
+    &__number { min-width: 40px; }
+    &__title { font-size: $fs-lg - 0.25rem; }
+    &__desc { font-size: $fs-sm; }
+  }
+}
